@@ -4,6 +4,6 @@ SATelite (Style analysis tool elite) is a submodule of the pinniochio.cs.up.ac.z
 tool which ranks the the level of particiaption from the surveys. The particpation level is then ranked into a matrix and each participant is allocated a 
 participatory style and further analysis is conducted.
 
-#Team members
-Banele Nxumalo
+#Team members\n
+Banele Nxumalo\n
 Mfana Masimula
