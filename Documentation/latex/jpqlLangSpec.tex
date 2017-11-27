@@ -1,0 +1,37 @@
+\usepackage{color}
+\usepackage{listings}
+\lstdefinelanguage{jpql}
+{
+keywords=
+  {SELECT,UPDATE,DELETE,FROM,WHERE,GROUP,BY,HAVING,ORDER,AND,OR,JOIN,INNER,OUTER,LEFT,IN,NOT,NULL,LIKE,MEMBER,OF,EXISTS,EMPTY,ALL,ANY,SOME,DISTINCT,CONCAT,SUBSTRING,TRIM,LOWER,UPPER,LEADING,TRAILING,BOTH,LENGTH,LOCATE,AVG,MAX,MIN,SUM,COUNT,SQRT,AS,NEW,SET,BETWEEN,ASC,DESC},%
+sensitive=true,%
+alsoletter={\$},%
+comment=[l]{\#},%
+string=[b]",%
+string=[b]'%
+}
+
+%\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+%\definecolor{CadetBlue}{cmyk}{0.62,0.57,0.23,0}
+\definecolor{lightgray}{gray}{0.9}
+\lstset{
+language=jpql,  
+backgroundcolor=\color{lightgray}, % Choose background color
+basicstyle=\ttfamily\tiny,
+breaklines=true,                        % Automatic line breaking?
+breakatwhitespace=false,                % Automatic breaks only at whitespace?
+captionpos=b,                           % Caption-position = bottom
+columns=flexible,                       % Column format
+commentstyle=\color{gray},           
+frame=none,                             % A frame around the code
+keywordstyle=\itshape\color{blue},
+%keywordstyle=\color{blue},        % Keywords font ('*' = uppercase)
+numbers=left,                           % Line nums position
+numberstyle=\tiny,                      % Line-numbers fonts
+numbersep=5pt,                          % How far are line-numbers from code
+showspaces=false,                       % Dont make spaces visible
+showtabs=false,                         % Dont make tabls visible
+stepnumber=1,                           % Step between two line-numbers
+tabsize=2,                              % Default tab size
+%morekeywords={__global__, __device__},  % CUDA specific keywords
+}

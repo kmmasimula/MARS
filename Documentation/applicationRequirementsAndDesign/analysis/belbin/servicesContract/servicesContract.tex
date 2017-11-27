@@ -1,0 +1,35 @@
+Table \ref{tab:belbin_serviceContract} depicts the service contracts for the services provided by the Belbin analysis services.
+
+\begin{table}[htb]
+\caption{Service contracts for the Belbin analysis services. \label{tab:belbin_serviceContract}}
+
+\begin{tabular}{llll}
+\hline
+\noalign{\smallskip}
+\textbf{precondition}&\textbf{exception} &\textbf{postcondition}\\
+\noalign{\smallskip}
+\hline
+\noalign{\smallskip}
+\textbf{makeRoleMatrix}\\
+user is a registered user & userNotFound & user role matrix is persisted \\
+user has completed the Belbin test & belbinTestNotCompeted\\
+\noalign{\smallskip}
+\textbf{calcRoleTotal}\\
+user is a registered user & userNotFound & return total for role of user\\
+user has completed the Belbin test & belbinTestNotCompeted\\
+\noalign{\smallskip}
+\textbf{calcRoles}\\
+user role matrix is persisted & noBelbinRoleMatrix & user roles are persisted\\
+\noalign{\smallskip}
+\textbf{makeTeamRoleMatrix} \\
+the team is valid & teamNotFound & team role matrix is persisted \\
+all users in the team are valid & userNotFound\\
+all users in the team has team roles & userBelbinRolesNotFound\\
+\noalign{\smallskip}
+\textbf{countRoles}\\
+team role matrix is persisted & noTeamBelbinRoleMatrix & return number of roles of team\\
+\noalign{\smallskip}
+\hline
+\end{tabular}  
+\end{table}
+ 

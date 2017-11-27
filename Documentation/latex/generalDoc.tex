@@ -1,0 +1,15 @@
+% A general document basis supporting relative 
+%   - importing generally useful packages
+%   - supporting relative imports, and sectioning
+
+\usepackage{import}
+
+\subimport{}{asection}
+\subimport{}{generalImports}
+\subimport{}{generalListings}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\setcounter{secnumdepth}{8}
+

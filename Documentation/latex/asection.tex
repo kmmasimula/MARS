@@ -1,0 +1,104 @@
+% Abstracted sectioning allowing for a section to automatically be a 
+% part, chapter, section, subsection, \ldots 
+% depending on the level in the tree where it is inserted.
+%
+%USAGE:
+%------
+%  \asection{The meaning of life}
+%    And then there was light \ldots
+%    \downsection
+%    \asection{What is meaning}
+%      Meaning is an indication of significance and has to always be relative to something.
+%      \pushsection
+%      \asection{Sub-meaning}
+%        Sub-meaning are of a lower level significance .
+%      \uppopsection
+%    \upsection
+%  \asection{What is life}
+%    Life is something which exhibits growth and reproduction.
+% 
+% ------
+%
+% Articles will automatically have sections as top-level partitioning structure. 
+% Books will have either chapter or part as top level element depending on
+% whether part is set to true via \partstrue or not
+%
+\usepackage{ifthen}
+%Define boolean if variable slides and default to false
+
+\setcounter{secnumdepth}{5}
+
+\newcounter{section-level}
+\setcounter{section-level}{0}
+\newcommand{\downsection}{\addtocounter{section-level}{1}}
+\newcommand{\upsection}{\addtocounter{section-level}{-1}}
+
+\makeatletter%
+\@ifclassloaded{book}
+%\@ifclassloaded{report}
+{
+  \ifparts
+	  \newcommand{\asection}[1] 
+	  {
+	    \ifthenelse{\equal{\value{section-level}}{0}}{\part{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{1}}{\chapter{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{2}}{\section{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{3}}{\subsection{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{4}}{\subsubsection{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{5}}{\paragraph{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{6}}{\subparagraph{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{7}}{}{}
+	  }
+	
+	  \newcommand{\asectionTitle}
+	  {
+	    \ifthenelse{\equal{\value{section-level}}{0}}{\partname}{}
+	    \ifthenelse{\equal{\value{section-level}}{1}}{\chaptername}{}
+	    \ifthenelse{\equal{\value{section-level}}{2}}{\secname}{}
+	    \ifthenelse{\equal{\value{section-level}}{3}}{\subsecname}{}
+	    \ifthenelse{\equal{\value{section-level}}{4}}{\subsubsecname}{}
+	  }
+  \else
+	  \newcommand{\asection}[1] 
+	  {
+	    \ifthenelse{\equal{\value{section-level}}{0}}{\chapter{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{1}}{\section{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{2}}{\subsection{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{3}}{\subsubsection{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{4}}{\paragraph{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{5}}{\subparagraph{#1}}{}
+	    \ifthenelse{\equal{\value{section-level}}{6}}{}{}
+	  }
+	
+	  \newcommand{\asectionTitle}
+	  {
+	    \ifthenelse{\equal{\value{section-level}}{0}}{\chaptername}{}
+	    \ifthenelse{\equal{\value{section-level}}{1}}{\secname}{}
+	    \ifthenelse{\equal{\value{section-level}}{2}}{\subsecname}{}
+	    \ifthenelse{\equal{\value{section-level}}{3}}{\subsubsecname}{}
+	    \ifthenelse{\equal{\value{section-level}}{4}}{\paragraphname}{}
+	    \ifthenelse{\equal{\value{section-level}}{5}}{\subparagraphname}{}
+	  }
+  \fi	  
+}
+{
+  \newcommand{\asection}[1]
+  {
+    \ifthenelse{\equal{\value{section-level}}{0}}{\section{#1}}{}
+    \ifthenelse{\equal{\value{section-level}}{1}}{\subsection{#1}}{}
+    \ifthenelse{\equal{\value{section-level}}{2}}{\subsubsection{#1}}{}
+    \ifthenelse{\equal{\value{section-level}}{3}}{\paragraph{#1}}{}
+    \ifthenelse{\equal{\value{section-level}}{4}}{\subparagraph{#1}}{}
+    \ifthenelse{\equal{\value{section-level}}{5}}{}{}
+  }
+  \newcommand{\asectionTitle}
+  {
+    \ifthenelse{\equal{\value{section-level}}{0}}{\secname}{}
+    \ifthenelse{\equal{\value{section-level}}{1}}{\subsecname}{}
+    \ifthenelse{\equal{\value{section-level}}{2}}{\subsubsecname}{}
+     \ifthenelse{\equal{\value{section-level}}{3}}{\paragraphname}{}
+	 \ifthenelse{\equal{\value{section-level}}{4}}{\subparagraphname}{}
+  }
+}
+
+\makeatother%

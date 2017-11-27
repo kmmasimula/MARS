@@ -1,0 +1,64 @@
+\subimport{}{generalImports}
+\subimport{}{asection}
+
+\usepackage{lastpage}
+
+\newif\ifopenbook
+
+\addpoints
+\bracketedpoints
+\pointsinrightmargin
+\setlength{\rightpointsmargin}{5mm}
+
+\extrawidth{15mm}
+
+\newenvironment{indentedItemize}
+{
+  \begin{itemize}{$\bullet$}{
+      \setlength{\leftmargin}{20mm}}}
+  {\end{itemize}
+}
+
+\qformat{\textbf{Question \thequestion: \thequestiontitle} \hfill \textbf{(\totalpoints)}}
+
+\pagestyle{headandfoot}
+\title{  
+      {\huge {\courseCode}: \emph{\courseName}} \\
+      Department of Computer Science,  University of Pretoria \\ 
+}
+
+\date{} % removing the default date in article style
+
+\begin{document}
+
+\maketitle
+
+\vspace{-4em}
+\centerline{\textbf{\theTest : } \theDate} 
+\vspace{1em}
+\centerline{\textbf{Examiners -- Internal: } \internalExaminers \;\;\;\;\;  \textbf{External:} \externalExaminers} 
+\vspace{1em}
+\begin{tabularx}{\textwidth}{ccccc}
+   \textbf{Marks:} \numpoints & \textbf{Full Marks:} \fullMarks &  \textbf{Questions:}  \numquestions & \textbf{Pages:} \numpages & \textbf{Time:} \availableTime \\
+\end{tabularx}
+ 
+ \vspace{2em}
+
+\newsavebox{\blokkie}\newsavebox{\studnumber}
+\sbox{\blokkie}{\framebox[7mm]{\rule{0mm}{6mm}}}
+\sbox{\studnumber}{\usebox{\blokkie}\usebox{\blokkie}\usebox{\blokkie}\usebox{\blokkie}\usebox{\blokkie}\usebox{\blokkie}\usebox{\blokkie}\usebox{\blokkie}}
+
+\noindent
+{\LARGE
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+  \multicolumn{8}{|c|}{\normalsize Student Number} \\
+  \hline
+  \hspace{5mm} & \hspace{5mm} & \hspace{5mm} & \hspace{5mm} &
+  \hspace{5mm} & \hspace{5mm} & \hspace{5mm} & \hspace{5mm} \\
+  \hline
+\end{tabular}
+}
+ Name:\dotfill \\
+  
+\cfoot{Page \thepage\ of \pageref{LastPage}}

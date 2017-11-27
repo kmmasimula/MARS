@@ -1,0 +1,37 @@
+Table \ref{tab:mbti_serviceContract} depicts the service contracts for the services provided by the MBTI analysis services.
+
+\begin{table}[htb]
+\caption{Service contracts for the MBTI analysis services. \label{tab:mbti_serviceContract}}
+
+\begin{tabular}{l l l}
+\hline
+\noalign{\smallskip}
+\textbf{precondition}&\textbf{exception} &\textbf{postcondition}\\
+\noalign{\smallskip}
+\hline
+\noalign{\smallskip}
+\textbf{makeDimensionMatrix}\\
+user is a registered user & userNotFound & user dimension matrix \\
+&&is persisted \\
+\noalign{\smallskip}
+\textbf{calcDimensionTotal}\\
+user is a registered user & userNotFound & return total for role of user\\
+\noalign{\smallskip}
+\textbf{calcMbtiType}\\
+user dimension matrix & noMbtiMatrix & user MBTI type is persisted\\
+is persisted \\
+\noalign{\smallskip}
+\textbf{makeTeamMBTIMatrix} \\
+the team is valid & teamNotFound & team MBTI matrix is persisted \\
+all users in the team are valid & userNotFound\\
+all users in the team has & userMbtiTypeNotFound\\
+MBTI types \\
+\noalign{\smallskip}
+\textbf{getMBTIDiversity}\\
+team MBTI matrix is persisted & noTeamMbtiMatrix & return team personality \\
+&&diversity value\\
+\noalign{\smallskip}
+\hline
+\end{tabular}  
+\end{table}
+ 

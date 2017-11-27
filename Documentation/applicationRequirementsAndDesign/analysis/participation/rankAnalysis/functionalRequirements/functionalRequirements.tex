@@ -1,0 +1,25 @@
+\begin{figure}[htb]
+\begin{center}
+ % \includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio=true]{functionalRequirements}
+\end{center}
+\caption{Services to determine the participatory style of a user based on ranking \label{fig:rank_functionalRequirements}}
+\end{figure}
+
+Figure \ref{fig:rank_functionalRequirements} shows the lower level services required to determine the participatory style of a user based on ranking. The services are the following:
+
+\begin{description}
+
+\item[makeTeamRankMatrix] The service takes the teamID as parameter and create a rank object for the team. The object is a square matrix with the number columns and the number of rows the same as the number of members in the team. The values entered in each row are determined using the \texttt{getUserRank} service described below for each of the users. 
+
+\item[getUserRank] The service takes the teamID and userID as parameter and returns a vector of integer values representing the rankings of the members of the team as reported by the user. 
+
+\end{description}  
+
+
+
+
+
+
+
+
+

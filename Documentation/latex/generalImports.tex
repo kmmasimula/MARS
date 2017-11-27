@@ -1,0 +1,33 @@
+%\usepackage[disable]{todonotes}
+\usepackage{todonotes}
+
+%Define boolean if variable slides and default to false
+\newif\ifslides
+\slidesfalse
+
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+
+%For things like \degrees~C and so on
+\usepackage{textcomp}
+
+\usepackage{geometry}
+
+%---- references as footnotes ----%
+%\usepackage{footbib}
+%\usepackage[style=authoryear]{biblatex}
+%\usepackage[style=footnote-dw]{biblatex}
+
+\subimport{}{myEnvironments}
+\subimport{}{myGraphics}
+\subimport{}{mySymbols}
+\subimport{}{myTableEnhancements}
+\subimport{}{myGlossaries}
+\subimport{}{myLanguage}
+
+\subimport{}{urdadDslSpec}
+\subimport{}{jpqlLangSpec}
+\subimport{}{sqlLangSpec}
+\subimport{}{cssLangSpec}
+

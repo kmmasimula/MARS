@@ -1,0 +1,15 @@
+\begin{figure}[htb]
+\begin{center}
+  %\includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio=true]{functionalRequirements}
+\end{center}
+\caption{Services related to the Belbin team role of users \label{fig:belbin_functionalRequirements}}
+\end{figure}
+
+Figure \ref{fig:belbin_functionalRequirements} shows the lower level services required by the services related to the Belbin team role of users. The services are the following:
+\begin{description}
+\item[makeRoleMatrix] The service takes the userID as parameter and create a belbin object for the user. The object consist of eight integer values; one for each of the eight Belbin roles. The values are determined using the \texttt{calcRoleTotal} service for each of the roles. The object is persisted.
+\item[calcRoleTotal] The service takes the role and userID as parameters and determine the total weight the user assigned to the role. The return value is an integer.
+\item[calcRoles] The service takes the userID as parameter and returns the roles of the user.  Ideally a primary and a secondary role should be assigned to a user. These should be the roles respectively with highest and the second highest scores in the belbin object for the user.  This service must assign roles to the user as follows: If the highest and second highest scores are both unique, the roles associated with these roles are assigned. If the highest score is not unique, all roles having this same highest score are assigned. This way some students can be assigned more than two roles. In cases where there is one role with the highest score, but the second highest score is not unique, only one role -- identified by the unique highest score -- is assigned. The result is one or more two character acronyms identifying the roles. The identified roles should be persisted in the user profile of the user using the \texttt{setBelbinAttributes} service described in Section~\ref{userAttributes}.
+\item[makeTeamRoleMatrix] The service takes the teamID as parameter and create a belbin object for the team. The object consist of eight integer values; one for each of the eight Belbin roles. The values are determined using the \texttt{getBelbinAttributes} service described in Section~\ref{userAttributes} for each each member in the team. The number of users in the team who are assigned to the role are counted for each of the roles. The object is persisted.
+\item[countRoles] The service takes the teamID as parameter and returns the number of distinct roles assigned to the users who are in the team. Where more than one user are assigned to a particular role, the role is counted only once.
+\end{description}  
