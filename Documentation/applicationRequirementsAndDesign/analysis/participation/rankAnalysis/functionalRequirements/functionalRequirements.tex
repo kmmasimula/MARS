@@ -13,6 +13,21 @@ Figure \ref{fig:rank_functionalRequirements} shows the lower level services requ
 
 \item[getUserRank] The service takes the teamID and userID as parameter and returns a vector of integer values representing the rankings of the members of the team as reported by the user. 
 
+\item[checkValidity] The services uses \texttt{checkIfContains} and \texttt{checkIfSquare} to check the validity of the matrix.
+
+\item[checkIfContains] The service takes the matrix as a parameter and checks if it contains 0,1,3 only and returns a bool.
+
+\item[checkIfSquare] The service takes a matrix as a paremeter and checks if the matrix is a square matrix.
+
+\item[getParticpatoryStyle] This service takes a matrix as a parameter and returns a list of participatory style for each user. It uses \texttt{checkIfColumn} service describes below for each of the users.
+
+\item[checkIfColumn] The service takes a matrix as a parameter and checks if each column of the matrix and it return a high string and low list.
+
+\item[CheckRowBalance] The service takes a matrix as a parameter and checks each row has the correct composition. 
+
+\item[CheckColumn] description
+
+\item[label] description
 \end{description}  
 
 
