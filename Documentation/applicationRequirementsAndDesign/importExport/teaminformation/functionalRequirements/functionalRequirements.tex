@@ -1,23 +1,15 @@
-\begin{figure}[htb]
-\begin{center}
- % \includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio=true]{functionalRequirements}
-\end{center}
-\caption{Services related to the MBTI personality types of users \label{fig:mbti_functionalRequirements}}
-\end{figure}
 
-Figure \ref{fig:mbti_functionalRequirements} shows the lower level services required by the services related to the MBTI personality types of users. The services are the following:
 
 \begin{description}
-\item[uploadfile] The service will allow user to upload file from the desktop to the system  by browsing and searching for the specific file.After the file has been uploaded , it will be validated for errors. If the file contains no errors, the system will respond to the user that the file has been successfully been uploaded otherwise the file was not uploaded due to errors in the file.
+\item[uploadfile] The service will allow user to upload file from the desktop to the system  by browsing and searching for the specific file.After the file has been uploaded, it will be validated for errors. If the file contains no errors, the system will respond to the user that the file has been successfully uploaded otherwise the file was not uploaded due to errors in the file.
 
-\item[specifyFileType] The service specifies which type of file is to be uploaded to the system.
 
-\item[validateFile] The service receives file and checks the file for the possible errors including conflict in member number , incosistent team number or invalid characters in the file . It ensures that the file contains the correct data.  ~\ref{userAttributes}.
+\item[validateFile] The service receives file and checks the file for the possible errors including conflict in member number, incosistent team number or invalid characters in the file. It ensures that the file contains the correct data.
 
-\item[buildTeamObjects] The service takes the whole file that has been successfully uploaded to the application and for each team , it creates team objects to be persisted to the database. 
+\item[buildTeamObjects] The service takes the whole file that has been successfully uploaded to the application and for each team, it creates team objects to be persisted to the database. 
 
-\item[persistToDB] The service takes the team objects that have been validated and persist them to the database.This service will also allow the user with an option to ignore or persist the team objects. If the object already exists in order to persist, it is overwritten.
-~\ref{mbtiDiversity}.
+\item[persistToDB] The service takes the team objects and persist them to the database. This service will also allow the user with an option to ignore or persist the team objects if the object already exists. 
+
 \end{description}  
 
 

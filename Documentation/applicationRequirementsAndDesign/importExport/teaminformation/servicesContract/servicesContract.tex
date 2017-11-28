@@ -1,7 +1,7 @@
-Table \ref{tab:mbti_serviceContract} depicts the service contracts for the services provided by the MBTI analysis services.
+Table \ref{tab:teaminfoimport} depicts the service contracts for the services provided by the MBTI analysis services.
 
 \begin{table}[htb]
-\caption{Service contracts for the MBTI analysis services. \label{tab:mbti_serviceContract}}
+\caption{Service contracts for importing Team Information. \label{tab:teaminfoimport}}
 
 \begin{tabular}{l l l}
 \hline
@@ -10,24 +10,26 @@ Table \ref{tab:mbti_serviceContract} depicts the service contracts for the servi
 \noalign{\smallskip}
 \hline
 \noalign{\smallskip}
-\textbf{makeDimensionMatrix}\\
-user is a registered user & userNotFound & user dimension matrix \\
+\textbf{uploadFile}\\
+The file exists & noDataFound & The file is uploaded \\
 &&is persisted \\
 \noalign{\smallskip}
-\textbf{calcDimensionTotal}\\
-user is a registered user & userNotFound & return total for role of user\\
+\textbf{specifyFileType}\\
+file Type exists & fileTypeNotFound & fileTypeUploaded\\
 \noalign{\smallskip}
-\textbf{calcMbtiType}\\
+
+\textbf{validateFile}\\
 user dimension matrix & noMbtiMatrix & user MBTI type is persisted\\
 is persisted \\
+
 \noalign{\smallskip}
-\textbf{makeTeamMBTIMatrix} \\
+\textbf{builtTeamObjects} \\
 the team is valid & teamNotFound & team MBTI matrix is persisted \\
 all users in the team are valid & userNotFound\\
 all users in the team has & userMbtiTypeNotFound\\
 MBTI types \\
 \noalign{\smallskip}
-\textbf{getMBTIDiversity}\\
+\textbf{persitToDB}\\
 team MBTI matrix is persisted & noTeamMbtiMatrix & return team personality \\
 &&diversity value\\
 \noalign{\smallskip}
