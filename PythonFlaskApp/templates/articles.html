@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>Team Marks</h1>
+	<form class="form-group" method="POST">
+        <div style="text-align:right;">
+        
+        <input type="submit" value="drop" class="btn btn-danger" name="deleteAll"pullright/>
+        <input type="submit" class="btn btn-primary" value="search" pullright/>
+        <input  type="text" name="mysearch" value="" />
+        </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Team Number</th>
+        <th>Team Members</th>
+        <th>Identifier</th>
+        <th>Rank</th>
+        <th>Hours</th>
+        <th>quality</th>
+        <th></th> 
+      </tr>
+    </thead>
+    <tbody ng-controller="CompanyCtrl">
+     
+        {% for art in myteam %}
+		<tr ng-repeat="company in companies">
+		<td>{{art.teamno}}</td>
+		<td>{{art.teamM}}</td>
+		<td>{{art.id}}</td>
+        <td>{{art.rank}}</td>
+		<td>{{art.hour}}</td>
+        <td>{{art.quality}}</td>
+        <td><a href="" class="btn btn-default" pullright>Edit</a></td>
+        <td><a href="/delete/{{art.myid}}" class="btn btn-danger" pullright>Delete</a></td>
+        
+		
+		</tr>
+		{% endfor %}
+    
+     </tbody>
+    </table>
+    </form>
+
+{% endblock %}

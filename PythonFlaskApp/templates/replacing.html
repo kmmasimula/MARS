@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>Team Objects</h1>
+    
+    <form id="upload-form" class="form-group" action="{{ url_for('home') }}" >
+    <div style="text-align:right;">
+    <input type="submit" class="btn btn-danger"  value="ignore"  name="cancel" pullright/>
+    </div>
+    </form>
+
+	<form class="form-group" method="POST"  >
+        <div style="text-align:right;">
+        
+        <input type="submit" class="btn btn-primary" value="replace" name="myreplace" pullright/>
+        </div>
+        <div style="text-align:right;">
+        
+        </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Team Number</th>
+        <th>Team Members</th>
+        <th>Identifier</th>
+        <th>Rank</th>
+        <th>Hours</th>
+        <th>quality</th>
+        <th></th> 
+      </tr>
+    </thead>
+    <tbody ng-controller="CompanyCtrl">
+     
+        {% for art in myteam %}
+		<tr ng-repeat="company in companies">
+		<td>{{art.TeamNr}}</td>
+		<td>{{art.TeamMembers}}</td>
+		<td>{{art.identifier}}</td>
+        <td>{{art.rank}}</td>
+		<td>{{art.hours}}</td>
+        <td>{{art.quality}}</td>
+        
+        
+		
+		</tr>
+		{% endfor %}
+    
+     </tbody>
+    </table>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block body %}
+<body>
+	<div class="jumbotron text-center">
+	<h1>File Uploader</h1>
+	</div>
+	<form id="upload-form" class="form-group" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+		
+		<input type="file" name="file" ><br>
+		<input type="submit" class="btn btn-primary" value="upload">
+
+	</form>
+	
+</body>
+{% endblock %}

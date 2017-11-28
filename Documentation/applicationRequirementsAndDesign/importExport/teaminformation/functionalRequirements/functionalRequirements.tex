@@ -1,0 +1,50 @@
+\begin{figure}[htb]
+\begin{center}
+ % \includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio=true]{functionalRequirements}
+\end{center}
+\caption{Services related to the MBTI personality types of users \label{fig:mbti_functionalRequirements}}
+\end{figure}
+
+Figure \ref{fig:mbti_functionalRequirements} shows the lower level services required by the services related to the MBTI personality types of users. The services are the following:
+
+\begin{description}
+\item[uploadfile] The service will allow user to upload file from the desktop to the system  by browsing and searching for the specific file.After the file has been uploaded , it will be validated for errors. If the file contains no errors, the system will respond to the user that the file has been successfully been uploaded otherwise the file was not uploaded due to errors in the file.
+
+\item[specifyFileType] The service specifies which type of file is to be uploaded to the system.
+
+\item[validateFile] The service receives file and checks the file for the possible errors including conflict in member number , incosistent team number or invalid characters in the file . It ensures that the file contains the correct data.  ~\ref{userAttributes}.
+
+\item[buildTeamObjects] The service takes the whole file that has been successfully uploaded to the application and for each team , it creates team objects to be persisted to the database. 
+
+\item[persistToDB] The service takes the team objects that have been validated and persist them to the database.This service will also allow the user with an option to ignore or persist the team objects. If the object already exists in order to persist, it is overwritten.
+~\ref{mbtiDiversity}.
+\end{description}  
+
+
+
+\begin{table}[h]
+\centering
+\caption{Values assigned to MBTI personality type ratings \label{tab:mbti_ratings}}
+\begin{tabular}{cc|cc|cc|cc}
+
+\hline
+\noalign{\smallskip}
+\multicolumn{2}{c}{\textbf{IE}}  & \multicolumn{2}{c}{\textbf{SN}} & \multicolumn{2}{c}{\textbf{TF}} & \multicolumn{2}{c}{\textbf{JP}} \\
+~Code~ & ~Value~ & ~Code~ & ~Value~ & ~Code~ & ~Value~ & ~Code~ & ~Value~\\
+\noalign{\smallskip}
+\hline
+E++ & -3  & S++ & -3 & T++ & -3 & J++ & -3\\
+E+ & -2 & S+ & -2 & T+ & -2 & J+ & -2  \\
+E & -1 & S & -1 & T & -1 & J & -1  \\
+I & 1 & N & 1 & F & 1 & P & 1 \\
+I+ & 2  & N+ & 2 & F+ & 2 & P+ & 2 \\
+I++ & 3 & N++  & 3 & F++  & 3 & P++  & 3 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+

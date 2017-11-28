@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1>Team Objects</h1>
+
+{% if myteam %}
+	<p><a href="mypersist">{{myteam.identifier}}</a></p>
+{% endif %}
+
+
+{% endblock %}
