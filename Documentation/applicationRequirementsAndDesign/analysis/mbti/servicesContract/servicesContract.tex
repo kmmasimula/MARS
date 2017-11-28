@@ -10,26 +10,19 @@ Table \ref{tab:mbti_serviceContract} depicts the service contracts for the servi
 \noalign{\smallskip}
 \hline
 \noalign{\smallskip}
-\textbf{makeDimensionMatrix}\\
-user is a registered user & userNotFound & user dimension matrix \\
-&&is persisted \\
+
+\textbf{setMbtiType}\\
+user is valid & userNotFound& user MBTI type is persisted\\
 \noalign{\smallskip}
-\textbf{calcDimensionTotal}\\
-user is a registered user & userNotFound & return total for role of user\\
-\noalign{\smallskip}
-\textbf{calcMbtiType}\\
-user dimension matrix & noMbtiMatrix & user MBTI type is persisted\\
-is persisted \\
-\noalign{\smallskip}
-\textbf{makeTeamMBTIMatrix} \\
+\textbf{setTeamMBTIMatrix} \\
 the team is valid & teamNotFound & team MBTI matrix is persisted \\
 all users in the team are valid & userNotFound\\
 all users in the team has & userMbtiTypeNotFound\\
 MBTI types \\
 \noalign{\smallskip}
-\textbf{getMBTIDiversity}\\
-team MBTI matrix is persisted & noTeamMbtiMatrix & return team personality \\
-&&diversity value\\
+\textbf{setMBTIDiversity}\\
+team MBTI matrix is persisted & noTeamMbtiMatrix & Team personality diversity \\
+&& value is persisted\\
 \noalign{\smallskip}
 \hline
 \end{tabular}  
