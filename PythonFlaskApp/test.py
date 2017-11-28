@@ -19,10 +19,10 @@ def printneat(somelist,strs):
 		print(somelist[x])
 
 def saveToDB(jj,fn):
-	connection = pymongo.Connection("mongodb://localhost", safe = True) 
+	#connection = pymongo.Connection("mongodb://localhost", safe = True) 
 
-	db = connection.m101
-	people = db.team
+	#db = connection.m101
+	#people = db.team
 	person = {'name':'vreda pieterse', 'role':'president'}
 	rr=np.array(jj)
 	data = {}

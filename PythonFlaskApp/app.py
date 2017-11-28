@@ -20,11 +20,11 @@ passs="banzo"
 usee="mybd"
 
 MONGODB_URI='mongodb://'+usee+':'+passs+'@ds121726.mlab.com:21726/satellite'
-client=pymongo.MongoClient(MONGODB_URI)
+client=pymongo.MongoClient(MONGODB_URI,connectTimeoutMS=30000)
 
 db=client.get_default_database()
 myvr=db['team']
-myvr.insert({"name":"banele"})
+#myvr.insert({"name":"banele"})
 
 APP_ROOT =os.path.dirname(os.path.abspath(__file__))
 app=Flask(__name__)
@@ -85,7 +85,7 @@ def upload():
 def edit(id):
 	try:
 		#print("my id is "+id)
-		machine=db.team.find_one({"_id":ObjectId(id)})
+		machine=myvr.find_one({"_id":ObjectId(id)})
 		print("hello "+str(machine['TeamNr']))
 		#for mach in machine:
 			
@@ -98,7 +98,7 @@ def edit(id):
 def delete(id):
 	try:
 		#print("my id is "+id)
-		machine=db.team.remove({"_id":ObjectId(id)})
+		machine=myvr.remove({"_id":ObjectId(id)})
 		flash('Object is deleted ','success')
 		#for mach in machine:
 			
@@ -113,15 +113,15 @@ def getMatchine():
 		results=""
 		if request.method=='POST' and request.form['mysearch']:
 			results=request.form['mysearch']
-			machine=db.team.find({"TeamNr":str(results)})
+			machine=myvr.find({"TeamNr":str(results)})
 		elif request.method=='POST' and request.form['deleteAll']:
 			start=request.form['deleteAll']=='drop'
 			if start:
-				machine=db.team.drop()
+				machine=myvr.drop()
 				flash('The whole table has been deleted ','success')
 				return redirect(url_for('home'))
 		else:
-			machine=db.team.find()
+			machine=myvr.find()
 
 		teams=[]
 		for mach in machine:
@@ -161,7 +161,7 @@ def replace():
 		start=request.form['myreplace']=='replace'
 		if start:
 			for x in range(len(cc)):
-				db.team.update(cc[x],cc[x],upsert=True)
+				myvr.update(cc[x],cc[x],upsert=True)
 			flash('The objects have been replaced successfully ','success')
 			return render_template('home.html')
 		else :
@@ -190,7 +190,7 @@ def about():
 
 @app.route('/errors')
 def errors():
-	machine=db.team.find()
+	machine=myvr.find()
 	mylist=[]
 	teams=[]
 	for mach in machine:
@@ -431,10 +431,10 @@ def persistpage():
 		print("hello persist")
 		print(cc[0])
 		for x in range(len(cc)):
-			if db.team.find(cc[x]).count()>0:
+			if myvr.find(cc[x]).count()>0:
 				flash('The objects already in the database ','danger')
 				return redirect(url_for('replace'))
-			db.team.update(cc[x],cc[x],upsert=True)
+			myvr.update(cc[x],cc[x],upsert=True)
 		flash('The objects have been persisted successfully ','success')
 		return render_template('home.html')
 
