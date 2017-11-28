@@ -1,8 +1,8 @@
 \begin{figure}[htb]
 \begin{center}
- % \includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio=true]{functionalRequirements}
+  \includegraphics[width=\textwidth,keepaspectratio=true]{MBTIscope}
 \end{center}
-\caption{Services related to the MBTI personality types of users \label{fig:mbti_functionalRequirements}}
+\caption{Services related to the MBTI personality types of users and teams\label{fig:mbti_functionalRequirements}}
 \end{figure}
 
 Figure \ref{fig:mbti_functionalRequirements} shows the lower level services required by the services related to the MBTI personality types of users. The services are the following:
@@ -20,11 +20,13 @@ Figure \ref{fig:mbti_functionalRequirements} shows the lower level services requ
 The following are helper functions used by the above services
 \begin{description}
 
-\item[makeDimensionMatrix] The function takes the userID as parameter and create a mbti object for the user. The object consist of four integer values; one for each of the four MBTI personality dimension. The values are determined using the \texttt{calcDimensionTotal} function for each of the dimensions. If the function raises an exception, the dimension value remains empty, otherwise the returned integer is stored for the dimension. The function returns a vector of four integer values.
+\item[calcMbtiType] This function takes the userID as parameter and returns the MBTI type of the user. The result is a four character acronym identifying MBTI type of the user. The calculated value in the dimension matrix of the user is used to assign the dimension category to the user. If the value is negative the left letter describing the dimension is assigned and if it is positive, then the letter on the right is assigned. If the dimension is empty or zero, the dimension is taken as neutral. If empty it is indicated with `-' while zero is indicated with `*'.  The identified MBTI personality type of the user should be persisted in the user profile of the user using the \texttt{setMBTIAttributes} service described in Section~\ref{userAttributes}.
 
 \item[calcDimensionTotal] The function takes a MBTI dimension and a userID as parameters and determine the total weight for the dimension for the user assigned by respondents who have rated the user on this dimension. The responses to the question for the specific dimension is used to gather a list of ratings for the particular user. If the list is empty an exception is raised, otherwise each of the MBTI ratings are converted to numbers ranging from -3 to +3 with the first letter of the dimension being negatives and the last ones being positive; see the (Table~\ref{ab:mbti_ratings})  The return value is an integer calculated as the total of the assigned values.
 
-\item[calcMbtiType] The service takes the userID as parameter and returns the MBTI type of the user. The result is a four character acronym identifying MBTI type of the user. The calculated value in the dimension matrix of the user is used to assign the dimension category to the user. If the value is negative the left letter describing the dimension is assigned and if it is positive, then the letter on the right is assigned. If the dimension is empty or zero, the dimension is taken as neutral. If empty it is indicated with `-' while zero is indicated with `*'.  The identified MBTI personality type of the user should be persisted in the user profile of the user using the \texttt{setMBTIAttributes} service described in Section~\ref{userAttributes}.
+\item[makeDimensionMatrix] The function takes the userID as parameter and create a mbti object for the user. The object consist of four integer values; one for each of the four MBTI personality dimension. The values are determined using the \texttt{calcDimensionTotal} function for each of the dimensions. If the function raises an exception, the dimension value remains empty, otherwise the returned integer is stored for the dimension. The function returns a vector of four integer values.
+
+
 \end{description}  
 
 
