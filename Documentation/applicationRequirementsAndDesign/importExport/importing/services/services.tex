@@ -1,0 +1,23 @@
+The following general services are provided for importing data from files into the system. Table \ref{tab:gerealImportContracts} depicts the service contracts for these services 
+
+\begin{description}
+\item[specifyFile] The service allows user to type in a file path or browse to and select a local file to be uploaded.
+\end{description}
+
+
+\begin{table}[htb]
+\caption{Service contracts for importing users.
+\label{tab:gerealImportContracts}}
+\begin{tabular}{l l l}
+\hline
+\noalign{\smallskip}
+\textbf{precondition}&\textbf{exception} &\textbf{postcondition}\\
+\noalign{\smallskip}
+\hline
+\textbf{specifyFile}\\
+valid file path selected & fileNotFound & return the selected file path\\
+\noalign{\smallskip}
+\hline
+\end{tabular}  
+\end{table}
+
