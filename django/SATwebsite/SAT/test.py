@@ -139,11 +139,8 @@ def getTeam2(arr):
 	return temp
 
 def readFromFile(fname):
-	#fname="2017_02Fixed.csv"
+	fname="C:/Work/app/django/SATwebsite/media/2017_02Fixed.csv"
 	print("This is the filename "+fname)
-	#client = MongoClient()
-	#db = client['mytest']
-	#coll=db['mytable']
 
 	myarr=[]
 	my2d=[]
@@ -159,7 +156,7 @@ def readFromFile(fname):
 	banzo=[]
 	k=0
 	#myHeaders=["UserID","TeamID",1,2,3]
-	with open(fname,"rb") as csvfile:
+	with open(fname,"rt") as csvfile:
 			isKopp=False
 			lineArray=[]
 			lineNum=1

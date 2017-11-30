@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>Team Marks</h1>
+	<form class="form-group" method="POST">
+        <div style="text-align:right;">
+        
+        <input type="submit" value="drop" class="btn btn-danger" name="deleteAll"pullright/>
+        <input type="submit" class="btn btn-primary" value="search" pullright/>
+        <input  type="text" name="mysearch" value="" />
+        </div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Team Number</th>
+        <th>Team Members</th>
+        <th>Identifier</th>
+        <th>Rank</th>
+        <th>Hours</th>
+        <th>quality</th>
+        <th></th> 
+      </tr>
+    </thead>
+    <tbody >
+     
+        {% for art in data %}
+       
+        <td>{{art.TeamNr}}</td>
+        <td>{{art.TeamMembers}}</td>
+        <td>{{art.identifier}}</td>
+        <td>{{art.rank}}</td>
+        <td>{{art.hours}}</td>
+        <td>{{art.quality}}</td>
+        </tr>
+        {% endfor %}
+    
+     </tbody>
+    </table>
+    </form>
+
+{% endblock %}
