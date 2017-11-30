@@ -1,4 +1,4 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+#from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import array
 import math
@@ -6,7 +6,7 @@ import numpy as np
 from collections import Counter
 import csv
 import sys
-import pymongo
+#import pymongo
 #from pymongo import Connection
 from pprint import pprint
 
