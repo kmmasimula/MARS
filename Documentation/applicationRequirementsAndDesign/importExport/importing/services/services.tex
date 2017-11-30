@@ -1,7 +1,7 @@
 The following general services are provided for importing data from files into the system. Table \ref{tab:gerealImportContracts} depicts the service contracts for these services 
 
 \begin{description}
-\item[specifyFile] The service allows user to type in a file path or browse to and select a local file to be uploaded.
+\item[uploadFile] The service allows user to type in a file path or browse to and select a local file to be uploaded.
 \end{description}
 
 
@@ -14,8 +14,8 @@ The following general services are provided for importing data from files into t
 \textbf{precondition}&\textbf{exception} &\textbf{postcondition}\\
 \noalign{\smallskip}
 \hline
-\textbf{specifyFile}\\
-valid file path selected & fileNotFound & return the selected file path\\
+\textbf{uploadFile}\\
+valid file path selected & fileNotFound & specified file is saved in media folder\\
 \noalign{\smallskip}
 \hline
 \end{tabular}  

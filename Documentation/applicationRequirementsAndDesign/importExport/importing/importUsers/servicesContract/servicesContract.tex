@@ -9,7 +9,12 @@ Table \ref{tab:userImport} depicts the service contracts for the services provid
 \textbf{precondition}&\textbf{exception} &\textbf{postcondition}\\
 \noalign{\smallskip}
 \hline
-
+\textbf{validateUsers}\\
+file has the prescribed header row & headerInvalid & fileValid cookie persisted\\
+delimiter is \verb|;| &invalidDelimeter \\
+each email contains exactly one @ sign & invalidEmail \\ 
+each cell number is 10 digits & invalidCell \\
+each cell number starts with 0 & invalidCell \\
 \noalign{\smallskip}
 \hline
 \end{tabular}  

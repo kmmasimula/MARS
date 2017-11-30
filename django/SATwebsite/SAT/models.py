@@ -15,15 +15,15 @@ class Team(models.Model):
 		return self.name
 
 class User(models.Model):
-	userID =models.CharField(max_length=250)
+	userID =models.CharField(max_length=25)
 	password=models.CharField(max_length=250)
-	title=models.CharField(max_length=250)
-	initials=models.CharField(max_length=250)
+	title=models.CharField(max_length=25)
+	initials=models.CharField(max_length=25)
 	name=models.CharField(max_length=250)
 	surname=models.CharField(max_length=250)
-	cellphone=models.CharField(max_length=250)
+	cellphone=models.CharField(max_length=25)
 	emailaddress=models.CharField(max_length=250)
-	kind=models.CharField(max_length=250)
+	status=models.CharField(max_length=5)
 
 	def __str__(self):
 		return self.name
