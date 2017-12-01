@@ -20,33 +20,7 @@ import json
 
 
 def errors(request):
-	#tr=["['' '' '' '' '' '' '']", "['0' '3' '1' '3' '1' '1' '0']", "['0' '1' '3' '3' '1' '1' '0']", "['1' '0' '1' '3' '1' '3' '0']", "['0' '1' '1' '3' '1' '3' '0']", "['' '' '' '' '' '' '']", "['0' '1' '1' '3' '1' '0' '3']"]
-	#ti='2017_02_Rank.csv_1'
-	#a=teamRank(teamID=ti,rankmatrix=tr)
-	#a.save()
-
-
-	tr=["['1' '3' '0' '1' '0' '1' '3']", "['0' '3' '0' '1' '1' '1' '3']", "['' '' '' '' '' '' '']", "['1' '3' '0' '1' '0' '1' '3']", "['0' '3' '0' '3' '1' '1' '1']", "['0' '3' '1' '1' '0' '3' '1']", "['1' '3' '0' '3' '0' '1' '1']"]
-	ti='2017_02_Rank.csv_2'
-	b=teamRank(teamID=ti,rankmatrix=tr)
-	b.save()
-	tr=["['3' '0' '1' '0' '1' '3']", "['3' '1' '0' '1' '0' '3']", "['0' '1' '1' '0' '3' '3']", "['3' '0' '0' '1' '1' '3']", "['0' '0' '3' '1' '1' '3']", "['1' '0' '1' '0' '3' '3']"]
-	ti='2017_02_Rank.csv_3'
-	c=teamRank(teamID=ti,rankmatrix=tr)
-	c.save()
-	tr=["['3' '1' '1' '0' '3' '0' '1']", "['1' '1' '3' '1' '3' '0' '0']", "['1' '1' '1' '3' '3' '0' '0']", "['1' '1' '1' '3' '3' '0' '0']", "['1' '1' '1' '3' '3' '0' '0']", "['1' '0' '1' '0' '3' '1' '3']", "['1' '0' '3' '0' '3' '1' '1']"]
-	ti='2017_02_Rank.csv_4'
-	d=teamRank(teamID=ti,rankmatrix=tr)
-	d.save()
-	tr=["['3' '1' '3' '1' '0' '0']", "['' '' '' '' '' '']", "['3' '1' '3' '1' '0' '0']", "['3' '3' '0' '1' '1' '0']", "['' '' '' '' '' '']", "['' '' '' '' '' '']"]
-	ti='2017_02_Rank.csv_5'
-	e=teamRank(teamID=ti,rankmatrix=tr)
-	e.save()
-	tr=["['3' '3' '0' '1' '1' '0']", "['3' '3' '1' '0' '1' '0']", "['1' '3' '1' '0' '3' '0']", "['0' '3' '3' '1' '0' '1']", "['3' '3' '0' '1' '1' '0']", "['3' '0' '0' '1' '3' '1']"]
-	ti='2017_02_Rank.csv_6'
-	f=teamRank(teamID=ti,rankmatrix=tr)
-	f.save()
-
+	
 	teams=[]
 	mylist=[]
 	num1=0
@@ -237,7 +211,7 @@ def errors(request):
 		print(len(teams))
 		for x in range(0,len(teams)):
 				list2=flatt(teams[x].rankmatrix)
-				print(len(list2[x]))
+				print("thissssss"+str(len(list2[x])))
 				cc=something(list2[x])
 				#print(list2[x])
 				try:
@@ -279,7 +253,8 @@ def errors(request):
 
 def index(request):
 	return render(request, 'home.html')
-UPLOAD_FOLDER=join(dirname(realpath(__file__)), 'static/uploads/..')
+#UPLOAD_FOLDER=join(dirname(realpath(__file__)), 'static/uploads/..')
+
 @csrf_protect
 def upload(request):
 	if (request.method =='POST'):
