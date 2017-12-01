@@ -6,6 +6,7 @@ from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from .test import readFromFile,cal,saveToDB
 
+
 # Create your views here.
 
 def index(request):
@@ -37,6 +38,9 @@ def upload(request):
 		return render(request,'upload.html')
 
 @csrf_protect
+
+
+
 def fileupload(request):
 	
 	if (request.method =='POST'):
@@ -47,3 +51,10 @@ def fileupload(request):
 def view(request):
 	mydata={}#Marks.objects.all()
 	return render(request, 'view.html',{"data":mydata})
+
+# ######################################################
+#               User management stuff
+# ######################################################
+
+def userlanding(request):
+	return render(request,'users.html')
