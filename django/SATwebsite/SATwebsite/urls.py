@@ -11,10 +11,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^sat/', include('SAT.urls')),
     url(r'^$',index),
-    url(r'^upload/',upload),
-    url(r'^view/$',view),
-    url(r'^file/',fileupload),
-    url(r'^errors/',errors),
+    url(r'^upload',upload),
+    url(r'^view',view),
+    url(r'^file',fileupload),
+    url(r'^errors',errors),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

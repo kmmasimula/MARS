@@ -9,6 +9,7 @@ from os.path import join, dirname, realpath
 from werkzeug import secure_filename
 import math
 import numpy as np
+import json 
 
 # Create your views here.
 
@@ -224,14 +225,13 @@ def errors(request):
 		listJSON=[]
 		data={}
 		apex='static/'
-		
+		for x in range(0,len(teams)):
+			print(teams[x].rankmatrix)
+			print('------------------\n')
 
 		#list2=[['0','1','3','0','0','1','3','0','0'],['1','3','0','0','1','3','0']]
 		print("This is flat")
-		#for x in range(3):
-		#	list2.append(flatt(teams[x]['rank']))
-		#print(flatt(teams[0]['rank']))
-		#print(list2)
+		
 		print('############\n LENGTH')
 		print(len(teams))
 		for x in range(0,len(teams)):
