@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+
+
+      </form>       
+        <table class="table  table-hover data-table sort display">
+             <thead>
+                 <tr>
+                    <th class="name">  <a href="" ng-click="columnToOrder='ColNumInv';reverse=!reverse"> Row number </a></th>
+                    <th class="name">  <a href="" ng-click="columnToOrder='ColNumInv';reverse=!reverse"> File </a></th>
+                     <th class="EmpId"> <a href="" ng-click="columnToOrder='ColNum';reverse=!reverse">Low 
+                          
+                         </a></th>
+                     <th class="name"> <a href="" ng-click="columnToOrder='ColNumInv';reverse=!reverse"> High </a> </th>
+                 <th class="Email"> <a href="" ng-click="columnToOrder='Message';reverse=!reverse"> Message </a> </th>
+                 <th></th>
+                 <th></th>
+                     
+                 </tr>
+             </thead> 
+             <tbody>
+
+                
+                 {% for art in myteam %}
+                 
+                 
+
+
+                 
+                    <td>{{art.row}}</td>
+
+                 
+                 <td>{{art.File}}</td>
+                     <td>{{art.ColNum}}</td>
+                     <td>{{art.ColNumInv}}</td>
+                     <td>{{art.Message}}</td>
+                     <td><a href="" class="btn btn-default pull-right">Edit</a></td>
+                     <td>
+                     
+
+
+                     </td>
+
+                 
+                 
+                 </tr>
+                 {% endfor %}
+
+             </tbody>
+        </table>
+         
+<div id="demo"></div>    
+
+</div></div>
+{% endblock %}
+</html>
