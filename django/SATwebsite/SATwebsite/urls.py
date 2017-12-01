@@ -2,7 +2,10 @@
 from django.conf.urls import include,url
 from django.contrib import admin
 
-from SAT.views import index,upload,fileupload,view
+
+from SAT.views import index,upload,fileupload,view,userlanding,errors
+
+
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -14,6 +17,9 @@ urlpatterns = [
     url(r'^upload/',upload),
     url(r'^view/',view),
     url(r'^file/',fileupload),
+    url(r'^users/',userlanding),
+    url(r'^errors',errors),
+
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

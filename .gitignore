@@ -120,4 +120,9 @@ ENV/
 *.out
 *.toc
 
+# SATelite stuff #
+##################
+
+*.csv
+*.txt
 
