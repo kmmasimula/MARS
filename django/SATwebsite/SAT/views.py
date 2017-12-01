@@ -37,6 +37,11 @@ def upload(request):
 		return render(request,'upload.html')
 
 @csrf_protect
+
+def users(request):
+	return render(request,'users.html')
+	
+	
 def fileupload(request):
 	
 	if (request.method =='POST'):
