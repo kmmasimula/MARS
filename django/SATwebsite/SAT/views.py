@@ -237,7 +237,7 @@ def errors(request):
 		print(len(teams))
 		for x in range(0,len(teams)):
 				list2=flatt(teams[x].rankmatrix)
-				print(list2)
+				print(len(list2[x]))
 				cc=something(list2[x])
 				#print(list2[x])
 				try:
