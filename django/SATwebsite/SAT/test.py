@@ -139,7 +139,9 @@ def getTeam2(arr):
 	return temp
 
 def readFromFile(fname):
-	fname="C:/Users/Mfana/Documents/GitHub/MARS/django/SATwebsite/media/2017_02Fixed.csv"
+
+	fname="."+fname
+
 	print("This is the filename "+fname)
 
 	myarr=[]
