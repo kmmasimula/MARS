@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Team,teamRank
+from .models import Team,teamRank,teamQuality,teamHours
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
@@ -28,14 +28,21 @@ def upload(request):
 				#print(thegame)
 				cc.append(saveToDB(thegame,filename))
 
+		
 		print(cc[0]['TeamNr'])
-		ti=filename+cc[0]['TeamNr']
-		tr=cc[0]['rank']
-		a=teamRank(teamID=ti,rankmatrix=tr)
-		a.save()
-		#for x in range(5):
-		#	a=Marks(teamnumber=cc[x]['TeamNr'],teamMembers=cc[x]['TeamMembers'],identifier=cc[x]['identifier'],rank=cc[x]['rank'],quality=cc[x]['quality'],hours=cc[x]['hours'])
-		#	a.save()
+		
+		for p in range(len(cc)):
+			ti=filename+"_"+cc[p]['TeamNr']
+			tr=cc[p]['rank']
+			tq=cc[p]['quality']
+			th=cc[p]['hours']
+			a=teamRank(teamID=ti,rankmatrix=tr)
+			b=teamQuality(teamID=ti,qualitymatrix=tq)
+			c=teamHours(teamID=ti,hoursmatrix=th)
+			a.save()
+			b.save()
+			c.save()
+		
 		return render(request, 'view.html',{"data":cc})
 	else :
 		return render(request,'upload.html')
